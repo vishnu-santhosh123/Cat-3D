@@ -173,6 +173,8 @@ import { UnrealBloomPass } from './jsm/postprocessing/UnrealBloomPass.js';
   scene.add(sun);
 
   // ---------- ground ----------
+  const LAKE_CENTER = new THREE.Vector3(10, 0, -10);
+  const LAKE_RADIUS = 8.5;
   function makeGrassTexture(){
     const c = document.createElement('canvas');
     c.width = 64; c.height = 64;
@@ -226,9 +228,6 @@ import { UnrealBloomPass } from './jsm/postprocessing/UnrealBloomPass.js';
   scene.add(grassMesh);
 
   // ---------- lake (real-time reflective water) ----------
-  const LAKE_CENTER = new THREE.Vector3(10, 0, -10);
-  const LAKE_RADIUS = 8.5;
-
   const lakeGeo = new THREE.CircleGeometry(LAKE_RADIUS, 48);
   const lake = new Reflector(lakeGeo, {
     clipBias: 0.003,
